@@ -166,7 +166,7 @@
     <pre><code>nano /etc/docker/daemon.json</code><button class="copy-button" onclick="copyCode(this)">复制代码</button></pre>
     <h3>修改JSON文件 更改为以下内容 然后保存</h3>
     <pre><code>{
-  "registry-mirrors": ["https://docker.amingg.com"]
+  "registry-mirrors": ["https://docker.amingg.com","https://hub.amingg.com"]
 }</code><button class="copy-button" onclick="copyCode(this)">复制代码</button></pre>
     <h3>重载systemd管理守护进程配置文件</h3>
     <pre><code>sudo systemctl daemon-reload</code><button class="copy-button" onclick="copyCode(this)">复制代码</button></pre>
@@ -178,7 +178,7 @@
     <h3>为了加速镜像拉取，使用以下命令设置<b>registry mirror</b>：</h3>
     <pre><code>sudo tee /etc/docker/daemon.json &lt;&lt;EOF
 {
-    "registry-mirrors": ["https://docker.amingg.com"]
+    "registry-mirrors": ["https://docker.amingg.com","https://hub.amingg.com"]
 }
 EOF</code><button class="copy-button" onclick="copyCode(this)">复制代码</button></pre>
     <h3>重载systemd管理守护进程配置文件</h3>
