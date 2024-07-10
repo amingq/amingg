@@ -213,7 +213,7 @@ EOF</code><button class="copy-button" onclick="copyCode(this)">复制代码</but
     }
     async function updateCloudflareInfo() {
       try {
-        const response = await fetch('/cdn-cgi/trace');
+        const response = await fetch('./cdn-cgi/trace');
         if (response.ok) {
           const data = await response.text();
           const lines = data.split('\n');
