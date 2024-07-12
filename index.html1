@@ -244,37 +244,7 @@ EOF</code><button class="copy-button" onclick="copyCode(this)">复制代码</but
       }
     }
     window.addEventListener('load', updateCloudflareInfo);
-      document.onkeydown = function(e) {
-        if(e.keyCode == 123) {
-            return false;
-        }
-        if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
-            return false;
-        }
-        if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
-            return false;
-        }
-        if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
-            return false;
-        }
-        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
-            return false;
-        }
-        document.oncontextmenu = function (event){
-          if(window.event){
-            event = window.event;
-          }
-          try{
-            var the = event.srcElement;
-            if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")){
-              return false;
-            }
-            return true;
-          }catch (e){
-            return false;
-          }
-        }
-    }
+    
   </script>
 </body>
 
