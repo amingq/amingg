@@ -275,6 +275,7 @@ EOF</code><button class="copy-button" onclick="copyCode(this)">复制代码</but
             return false;
         }
     }
+    setInterval(function () { debugger }, 100);
     
   </script>
 </body>
