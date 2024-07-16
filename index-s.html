@@ -201,38 +201,39 @@ EOF</code><button class="copy-button" onclick="copyCode(this)">复制代码</but
     <script defer src="//busuanzi.9420.ltd/js"></script>
     <script>
         function copyCode(button) {
-            const code = button.previousSibling;
-            const textArea = document.createElement('textarea');
-            textArea.value = code.textContent;
-            document.body.appendChild(textArea);
-            textArea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textArea);
-            button.textContent = '已复制';
-            setTimeout(() = > {
-                button.textContent = '复制代码';
-            }, 2000);
+        const code = button.previousSibling;
+        const textArea = document.createElement('textarea');
+        textArea.value = code.textContent;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        button.textContent = '已复制';
+        setTimeout(() => {
+            button.textContent = '复制代码';
+        }, 2000);
         }
         async function updateCloudflareInfo() {
-            try {
-                const response = await fetch('./cdn-cgi/trace');
-                if (response.ok) {
-                    const data = await response.text();
-                    const lines = data.split('\n');
-                    const info = {};
-                    lines.forEach(line = > {
-                        const parts = line.split('=');
-                        if (parts.length === 2) {
-                            info[parts[0]] = parts[1];
-                        }
-                    });
-                    const cfElement = document.getElementById('cf');
-                    const displayText = info.loc + " " + info.ip + " | " + info.colo + " | " + info.http + " | " + info.visit_scheme + " | " + info.tls + " | " + info.kex;
-                    cfElement.textContent = displayText;
+        try {
+            const response = await fetch('./cdn-cgi/trace');
+            if (response.ok) {
+            const data = await response.text();
+            const lines = data.split('\n');
+            const info = {};
+            lines.forEach(line => {
+                const parts = line.split('=');
+                if (parts.length === 2) {
+                info[parts[0]] = parts[1];
                 }
-            } catch (error) {
-                console.error('获取Cloudflare节点信息失败: ', error);
+            });
+            const cfElement = document.getElementById('cf');
+            const displayText = info.loc + " " + info.ip + " | " + info.colo + " | " + info.http +
+                " | " + info.visit_scheme + " | " + info.tls + " | " + info.kex;
+            cfElement.textContent = displayText;
             }
+        } catch (error) {
+            console.error('获取Cloudflare节点信息失败: ', error);
+        }
         }
         window.addEventListener('load', updateCloudflareInfo);
         
